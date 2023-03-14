@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         apiRequesterWithHeaders();
+        //apiRequesterWithoutHeaders();
     }
 
     /**
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
      * uses zenquotes to extract random quotes.
      * @throws JSONException if response is null.
      */
-    private void renderQuotes(){
+    private void  apiRequesterWithoutHeaders(){
 
 
         // https://www.youtube.com/watch?v=xPi-z3nOcn8
