@@ -1,4 +1,7 @@
 # How to make API calls in Java and Android Apps?
+
+This app uses Volley to get API calls. there are much more use cases for Volley and different ways to do the same thing. This is a useful guide to explain how code may look like in two specific scenerios.
+
 ### Instructions
 - Clone this project.
 - Add API key to local.properties file located at root of the project. For my project called, testRapidAPI2 should have testRapidAPI2/local.properties. If not, simply right clicking root folder and selecting new file and call it local.properties. Otherwise hard code API key works too [your key for testing](app/src/main/java/com/example/testrapidapi/MainActivity.java#L38)!
