@@ -1,6 +1,6 @@
 # How to make API calls in Java and Android Apps?
 ### Instructions
-- add api key to local.properties located at root.
+- add api key to local.properties located at root of the project. For my project called, testRapidAPI2 should have testRapidAPI2/local.properties. if not simply right clicking root folder and selecting new file and call it local.properties. Otherwise hard code API key works too [your key for testing](app/src/main/java/com/example/testrapidapi/MainActivity.java#L38)!
 - Add or double check volley exists in build.gradle(<app name>: app)
 ```
 dependencies{
