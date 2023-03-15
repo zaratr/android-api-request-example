@@ -4,12 +4,14 @@ This app uses Volley to get API calls. there are much more use cases for Volley 
 
 ### Instructions
 - Clone this project.
-- Add API key to local.properties file located at root of the project. For my project called, testRapidAPI2 should have testRapidAPI2/local.properties. If not, simply right clicking root folder and selecting new file and call it local.properties. Otherwise hard code API key works too [your key for testing](app/src/main/java/com/example/testrapidapi/MainActivity.java#L38)!
-- Add or double check volley exists in build.gradle(<app name>: app) shown below:
+- if using RapidAPI, then make sure you are subscribed to the api you want to use. you can find out if you are by testing the request on the api website (blue button that will say "Test Connection" after being subscribed.)
+- Add API key at this [location of code.](app/src/main/java/com/example/testrapidapi/MainActivity.java#L52)
+- Add or double check okhttp3 exists in build.gradle(<app name>: app) shown below:
 ```
 dependencies{
-//... check dependencies for volley
-implementation 'com.android.volley:volley:1.0.0'
+//... check dependencies for okhttp3 and volley but only use volley if you have no headers.
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.android.volley:volley:1.2.1'
 }
 ```
 -  AndroidManifest.xml -> dependencies must have permissions for internet access code shown below:

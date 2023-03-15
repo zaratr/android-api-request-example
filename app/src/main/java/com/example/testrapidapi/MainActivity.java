@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * uses zenquotes to extract random quotes.
+     * uses zenquotes to extract random quotes. make sure okhttp3 is not being used to use this volley example.
      * @throws JSONException if response is null.
      */
 
