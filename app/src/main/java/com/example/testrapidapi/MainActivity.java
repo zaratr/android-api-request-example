@@ -7,14 +7,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import okhttp3.*;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +23,6 @@ import java.util.Properties;
 /**
  * Main activity has two examples with different api's. The difference is using headers and not using headers
  * @see #apiRequesterWithHeaders()
- * @see #apiRequesterWithoutHeaders()
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -50,39 +42,47 @@ public class MainActivity extends AppCompatActivity {
      * Method that will use rapidapi to get content. log.d will show what is being extracted when running program.
      * @throws NullPointerException if url is null.
      */
-    private void apiRequesterWithHeaders(){
-        RequestQueue queue = Volley.newRequestQueue(this);
-        //do not need this (only used this to explain its from field variable).
-        String url = "https://rapidapi.com/"; //TODO: need to add a meaningful request otherwise this will return the whole dom!
-        String apiKey = this.apiKeyForAPI;
-        StringRequest getRequest = new StringRequest(Request.Method.GET, url,
-                response -> {
-                    // response
-                    Log.d("Response", response);
-                    final TextView textView = (TextView) findViewById(R.id.motivationalQuote);
-                    textView.setText(response);
-                },
-                error -> {
-                    Log.d("ERROR","error => "+error.toString());
-                }
-        ) {
+    private void apiRequesterWithHeaders() {
+        // run the API request in a background thread
+        new Thread(new Runnable() {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("X-RapidAPI-Key", apiKey);
-                params.put("X-RapidAPI-Host", "exercises2.p.rapidapi.com");
+            public void run() {
+                OkHttpClient client = new OkHttpClient();
+                String apiUrl = "https://exerciseapi3.p.rapidapi.com/search/muscles/";
+                String apiKey ="";// <"replace me with yourAPI key" >
 
-                return params;
+                Request request = new Request.Builder()
+                        .url(apiUrl)
+                        .get()
+                        .addHeader("X-RapidAPI-Key", apiKey)
+                        .addHeader("X-RapidAPI-Host", "exerciseapi3.p.rapidapi.com")
+                        .build();
+
+                try {
+                    Response response = client.newCall(request).execute();
+                    String responseBody = response.body().string();
+
+                    // update the UI on the main thread
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            final TextView textView = findViewById(R.id.motivationalQuote);
+                            textView.setText(responseBody);
+                        }
+                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        };
-        queue.add(getRequest);
-        return;
+        }).start();
     }
 
     /**
      * uses zenquotes to extract random quotes.
      * @throws JSONException if response is null.
      */
+
+    /*
     private void  apiRequesterWithoutHeaders(){
 
 
@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         queue.add(request);
     }
 
+     */
 
     /**
      * Extracts api key from local.properties.
