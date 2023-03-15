@@ -21,6 +21,6 @@ dependencies{
 - I use TextView to show result on XML UI [activity_main.xml](app/src/main/res/layout/activity_main.xml)
 - The two example methods below in MainActivity class are ways to access api using Volley. 
 ### Example 1: Rapid Api or any api call with header
-- Link to working Method [apiRequstHeader](app/src/main/java/com/example/testrapidapi/MainActivity.java#L53)
+- Link to working Method [apiRequstHeader](app/src/main/java/com/example/testrapidapi/MainActivity.java#L45)
 ### Example 2: API call with no header - ZenQuotes.io
 - Link to working Method [apiRequstWithoutHeader](app/src/main/java/com/example/testrapidapi/MainActivity.java#L86)
