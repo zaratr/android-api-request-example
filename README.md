@@ -24,4 +24,5 @@ dependencies{
 ### Example 1: Rapid Api or any api call with header
 - Link to working Method [apiRequstHeader](app/src/main/java/com/example/testrapidapi/MainActivity.java#L45)
 ### Example 2: API call with no header - ZenQuotes.io
+- This code is commented out for now. just uncomment it out and make sure that you aren't using okhttp3's response by not importing okhttp3
 - Link to working Method [apiRequstWithoutHeader](app/src/main/java/com/example/testrapidapi/MainActivity.java#L86)
