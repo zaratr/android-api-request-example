@@ -27,7 +27,7 @@ import java.util.Properties;
 public class MainActivity extends AppCompatActivity {
 
     //extracts from local.properties, else "".
-    String apiKeyForAPI = getApiKey();
+    //String apiKeyForAPI = getApiKey();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
      * Extracts api key from local.properties.
      * @return string - api value from local.properties otherwise empty string.
      */
+    /*
     public String getApiKey(){
         Properties props = new Properties();
         String apiKey = "";
@@ -125,4 +126,6 @@ public class MainActivity extends AppCompatActivity {
         apiKey = props.getProperty("api.key");
         return apiKey;
     }
+
+     */
 }

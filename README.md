@@ -5,6 +5,7 @@ This app uses Volley to get API calls. there are much more use cases for Volley 
 ### Instructions
 - Clone this project.
 - if using RapidAPI, then make sure you are subscribed to the api you want to use. you can find out if you are by testing the request on the api website (blue button that will say "Test Connection" after being subscribed.)
+- Update URL of api [here](app/src/main/java/com/example/testrapidapi/MainActivity.java#L51)
 - Add API key at this [location of code.](app/src/main/java/com/example/testrapidapi/MainActivity.java#L52)
 - Add or double check okhttp3 exists in build.gradle(<app name>: app) shown below:
 ```
