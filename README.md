@@ -1,6 +1,6 @@
 # How to make API calls in Java and Android Apps?
 
-This app uses Volley to get API calls. there are much more use cases for Volley and different ways to do the same thing. This is a useful guide to explain how code may look like in two specific scenerios.
+This app uses Volley and okhttp3 to get API calls. there are much more use cases for Volley and different ways to do the same thing. This is a useful guide to explain how code may look like in two specific scenerios.
 
 ### Instructions
 - Clone this project.
