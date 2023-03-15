@@ -10,7 +10,7 @@ This app uses Volley and okhttp3 to get API calls. there are much more use cases
 - Add or double check okhttp3 exists in build.gradle(<app name>: app) shown below:
 ```
 dependencies{
-//... check dependencies for okhttp3 and volley but only use volley if you have no headers.
+//... check dependencies for okhttp3 and volley but only use volley if you use no headers.
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
     implementation 'com.android.volley:volley:1.2.1'
 }
